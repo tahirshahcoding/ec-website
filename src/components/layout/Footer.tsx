@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, Mail, MessageCircle, Phone } from "lucide-react";
 
 function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -147,6 +147,26 @@ export function Footer() {
                 >
                   <Mail className="h-3.5 w-3.5 shrink-0 text-[#8B5CF6]" strokeWidth={1.8} />
                   team.eaglenestcreations@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+923464451505"
+                  className="inline-flex items-center gap-2 text-xs text-[#475569] transition-colors hover:text-[#0F172A]"
+                >
+                  <Phone className="h-3.5 w-3.5 shrink-0 text-[#5B5FFF]" strokeWidth={1.8} />
+                  +92 346 4451505
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/923464451505"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs text-[#475569] transition-colors hover:text-[#0F172A]"
+                >
+                  <MessageCircle className="h-3.5 w-3.5 shrink-0 text-[#10B981]" strokeWidth={1.8} />
+                  Chat on WhatsApp
                 </a>
               </li>
             </ul>

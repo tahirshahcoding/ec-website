@@ -21,18 +21,18 @@ const OPTIONS = [
     tint: "bg-[#8B5CF6]/[0.1] text-[#8B5CF6]",
     title: "Phone",
     description: "Quick consultations and direct communication.",
-    detail: "+92 XXX XXXXXXX",
+    detail: "+92 346 4451505",
     cta: "Call us",
-    href: "tel:+03464451505",
+    href: "tel:+923464451505",
   },
   {
     icon: MessageCircle,
     tint: "bg-[#10B981]/[0.1] text-[#10B981]",
     title: "WhatsApp",
     description: "Fast responses for local and international clients.",
-    detail: "+92 XXX XXXXXXX",
+    detail: "+92 346 4451505",
     cta: "Chat on WhatsApp",
-    href: "https://wa.me/03464451505",
+    href: "https://wa.me/923464451505",
   },
   {
     icon: MapPin,
@@ -69,13 +69,17 @@ export function ContactOptions() {
           viewport={{ once: true, margin: "-80px" }}
           className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {OPTIONS.map(({ icon: Icon, tint, title, description, detail, cta, href }) => (
-            <motion.a
-              key={title}
-              href={href}
-              variants={blurInUp}
-              className="group relative flex flex-col rounded-[24px] border border-[#D2D8F0] bg-white p-8 shadow-[0_1px_3px_rgba(15,23,42,0.03),0_10px_40px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#5B5FFF]/25 hover:shadow-[0_24px_60px_rgba(91,95,255,0.14)]"
-            >
+          {OPTIONS.map(({ icon: Icon, tint, title, description, detail, cta, href }) => {
+            const isExternal = href.startsWith("http");
+            return (
+              <motion.a
+                key={title}
+                href={href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                variants={blurInUp}
+                className="group relative flex flex-col rounded-[24px] border border-[#D2D8F0] bg-white p-8 shadow-[0_1px_3px_rgba(15,23,42,0.03),0_10px_40px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#5B5FFF]/25 hover:shadow-[0_24px_60px_rgba(91,95,255,0.14)]"
+              >
               <div className="flex h-full flex-col">
                 <div className="mb-8 flex items-center justify-between">
                   <div className={`flex h-12 w-12 items-center justify-center rounded-[14px] ${tint}`}>
@@ -95,7 +99,8 @@ export function ContactOptions() {
                 </p>
               </div>
             </motion.a>
-          ))}
+          );
+        })}
         </motion.div>
       </div>
     </section>
